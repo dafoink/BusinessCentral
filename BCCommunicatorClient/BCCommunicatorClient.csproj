@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BCCommunicator\BCCommunicator.csproj" />
+    <Reference Include="BCCommunicator">
+      <HintPath>..\BCCommunicator\bin\Debug\net6.0\BCCommunicator.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

@@ -39,6 +39,7 @@ namespace BCCommunicator
             request.AddParameter("grant_type", "refresh_token");
             request.AddParameter("refresh_token", refreshToken);
 
+
             // execute the REST call
             RestResponse response = client.Execute(request);
 
@@ -58,6 +59,61 @@ namespace BCCommunicator
                 throw new Exception($"Return Token could not be deserialized\n{ex.Message}");
             }
             if(returnToken == null) { throw new Exception("Return Token is null"); }
+
+            // return the token
+            return returnToken;
+        }
+
+        /// <summary>
+        /// This will retrieve a new access token, given tenantID, clientID, clientSecret, and the refresh token
+        /// </summary>
+        /// <param name="tenantID">Tenant ID you are using for BC</param>
+        /// <param name="clientID">ClientID setup in Active Directory</param>
+        /// <param name="clientSecret">Client Secret setup in Active Directory</param>
+        /// <param name="scope">Client Secret setup in Active Directory</param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public Token CreateNewToken(string tenantID, string clientID, string clientSecret, string scope)
+        {
+            // create rest client options and point to the base login.microsoftonline.com
+            var options = new RestClientOptions("https://login.microsoftonline.com")
+            {
+                MaxTimeout = -1,
+            };
+
+            // create a rest client
+            var client = new RestClient(options);
+
+            // we are going to point to the token endpoint (NOTE: the tenantID is part of this endpoint)
+            var request = new RestRequest($"/{tenantID}/oauth2/v2.0/token", Method.Post);
+            request.AddHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // add the parameters for clientID, secret, granttype (refresh_token), and the refresh_token to use
+            request.AddParameter("client_id", clientID);
+            request.AddParameter("client_secret", clientSecret);
+            request.AddParameter("grant_type", "client_credentials");
+            request.AddParameter("scope", scope);
+
+
+            // execute the REST call
+            RestResponse response = client.Execute(request);
+
+            // lets do some error handling
+            if (response == null) { throw new Exception("Token Response is Null"); }
+            if (response.Content == null) { throw new Exception("Token Content is null"); }
+            if (response.StatusCode != System.Net.HttpStatusCode.OK) { throw new Exception($"Status not returned as OK ({response.StatusCode}\n{response.Content})"); }
+            Token returnToken = null;
+
+            // serialize the returned token (make sure we do some error handling)
+            try
+            {
+                returnToken = Newtonsoft.Json.JsonConvert.DeserializeObject<Token>(response.Content);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Return Token could not be deserialized\n{ex.Message}");
+            }
+            if (returnToken == null) { throw new Exception("Return Token is null"); }
 
             // return the token
             return returnToken;

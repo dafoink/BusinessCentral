@@ -10,9 +10,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BCCommunicatorClient", "BCCommunicatorClient\BCCommunicatorClient.csproj", "{D29A56ED-EC66-4794-9029-269669118EFB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLLs", "DLLs", "{963E524D-8253-4950-AB57-57929035391C}"
-	ProjectSection(SolutionItems) = preProject
-		DLLs\BCCommunicator.dll = DLLs\BCCommunicator.dll
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BCCCommunicatorDotNetOld", "BCCCommunicatorDotNetOld\BCCCommunicatorDotNetOld.csproj", "{344AB6FB-24B8-42B1-8394-8A9F07E61A6B}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "VB_BCClient", "..\VB_BCClient\VB_BCClient.vbproj", "{ECF5AB6F-B62C-4475-A74E-87F08FB19887}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{344AB6FB-24B8-42B1-8394-8A9F07E61A6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{344AB6FB-24B8-42B1-8394-8A9F07E61A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{344AB6FB-24B8-42B1-8394-8A9F07E61A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{344AB6FB-24B8-42B1-8394-8A9F07E61A6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECF5AB6F-B62C-4475-A74E-87F08FB19887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECF5AB6F-B62C-4475-A74E-87F08FB19887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECF5AB6F-B62C-4475-A74E-87F08FB19887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECF5AB6F-B62C-4475-A74E-87F08FB19887}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4A79E130-C34B-44C5-9FDB-71FEDD5021DC}
+	EndGlobalSection
+EndGlobal
